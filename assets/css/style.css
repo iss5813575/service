@@ -276,20 +276,20 @@ h6 {
   border: 1px solid #ebeef4;
 }
 
-.accordion-button:focus {
+/* .accordion-button:focus {
   outline: 0;
   box-shadow: none;
-}
+} */
 
 .accordion-button:not(.collapsed) {
   color: #012970;
-  background-color: #f6f9ff;
+  /* background-color: #f6f9ff; */
 }
 
 .accordion-flush .accordion-button {
   padding: 15px 0;
   background: none;
-  border: 0;
+  /* border: 0; */
 }
 
 .accordion-flush .accordion-button:not(.collapsed) {
@@ -461,7 +461,7 @@ h6 {
   list-style: none;
 }
 
-.header-nav > ul {
+.header-nav>ul {
   margin: 0;
   padding: 0;
 }
@@ -630,6 +630,7 @@ h6 {
 }
 
 @media (min-width: 1200px) {
+
   #main,
   #footer {
     margin-left: 300px;
@@ -643,6 +644,7 @@ h6 {
 }
 
 @media (min-width: 1200px) {
+
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
     margin-left: 0;
@@ -688,9 +690,11 @@ h6 {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .logout:hover {
   background: #f6f9ff;
 }
+
 .list_item {
   display: flex;
   align-items: center;
@@ -701,6 +705,7 @@ h6 {
   padding: 10px 15px;
   border-radius: 4px;
 }
+
 .list_item span {
   cursor: pointer;
 }
@@ -797,4 +802,17 @@ h6 {
 
 .number {
   font-weight: bold;
+}
+
+.list-item {
+  margin-top: 10px;
+}
+
+.btn_list {
+  margin-bottom: 10px;
+}
+
+.btn-active {
+  color: #fff;
+  background-color: #0d6efd;
 }

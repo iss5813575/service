@@ -17,7 +17,7 @@ function fastRepair()
     $res = mysqli_query($connection, $sql);
     while ($row = mysqli_fetch_array($res)) {
 
-        $sql_status = "SELECT status FROM db_fast_status WHERE id_repair = '" . $row['id_repair']  . "' ORDER BY id DESC LIMIT 1";
+        $sql_status = "SELECT status,detail_worker FROM db_fast_status WHERE id_repair = '" . $row['id_repair']  . "' ORDER BY id DESC LIMIT 1";
         $status = mysqli_query($connection, $sql_status);
         $st = mysqli_fetch_array($status, MYSQLI_ASSOC);
 
@@ -29,6 +29,7 @@ function fastRepair()
             "date" => $row["date"],
             "create_by" => $row["create_by"],
             "status" => $st["status"],
+            "detail_worker" => $st["detail_worker"]
         );
         array_push($data, $obj);
     }

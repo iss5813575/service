@@ -232,20 +232,6 @@ h6 {
   padding: 15px;
 }
 
-.card-title {
-  padding: 20px 0 15px 0;
-  font-size: 18px;
-  font-weight: 500;
-  color: #012970;
-  font-family: "Poppins", sans-serif;
-}
-
-.card-title span {
-  color: #899bbd;
-  font-size: 14px;
-  font-weight: 400;
-}
-
 .card-body {
   padding: 0 20px 20px 20px;
 }
@@ -804,6 +790,35 @@ h6 {
   font-weight: bold;
 }
 
+.db_fast_repair {
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.db_all {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.db_pending {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.db_complete {
+  background-color: #198754;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+
+/* END Dashboard */
+
 .list-item {
   margin-top: 10px;
 }
@@ -815,4 +830,8 @@ h6 {
 .btn-active {
   color: #fff;
   background-color: #0d6efd;
+}
+
+.h-item {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

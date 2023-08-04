@@ -85,7 +85,7 @@ function getFastRepair()
           if (data[i]["status"] == "รอดำเนินการ") {
             job_pending += 1
 
-            html_pending += `<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList${i}" aria-expanded="false" aria-controls="collapseList">
+            html_pending += `<button class="accordion-button collapsed h-item" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList${i}" aria-expanded="false" aria-controls="collapseList">
             หมายเลขแจ้งซ่อม ${data[i]["id_repair"]}
           </button>
           <div class="collapse" id="collapseList${i}">
@@ -103,7 +103,7 @@ function getFastRepair()
 
           } else {
             job_complate += 1
-            html_complete += `<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList${i}" aria-expanded="false" aria-controls="collapseList">
+            html_complete += `<button class="accordion-button collapsed h-item" type="button" data-bs-toggle="collapse" data-bs-target="#collapseList${i}" aria-expanded="false" aria-controls="collapseList">
             หมายเลขแจ้งซ่อม ${data[i]["id_repair"]}
           </button>
           <div class="collapse" id="collapseList${i}">

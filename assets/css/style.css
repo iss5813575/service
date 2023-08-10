@@ -795,6 +795,11 @@ h6 {
   padding: 10px;
 }
 
+.db_ap_repair {
+  background-color: #ffffff;
+  padding: 10px;
+}
+
 .db_all {
   background-color: #0d6efd;
   color: #fff;

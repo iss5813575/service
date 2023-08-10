@@ -4,8 +4,11 @@ include_once('./config/db_conect.php');
 session_start();
 
 
-if (isset($_GET)) {
+if (isset($_GET['get_fast_repair'])) {
     echo json_encode(fastRepair());
+}
+if (isset($_GET['get_ap'])) {
+    echo json_encode(Appeal());
 }
 
 
@@ -34,4 +37,30 @@ function fastRepair()
         array_push($data, $obj);
     }
     return $data;
+}
+
+function Appeal(){
+    global $connection;
+    $data = array();
+    $sql = "SELECT * FROM db_suggest ORDER BY id_suggest DESC";
+    $res = mysqli_query($connection, $sql);
+    while ($row = mysqli_fetch_array($res)) {
+
+        $sql_status = "SELECT status FROM db_suggest_status WHERE id_suggest = '" . $row['id_suggest']  . "' ORDER BY id DESC LIMIT 1";
+        $status = mysqli_query($connection, $sql_status);
+        $st = mysqli_fetch_array($status, MYSQLI_ASSOC);
+
+
+        $obj = array(
+            "id_suggest" => $row["id_suggest"],
+            "location" => $row["location"],
+            "detail" => $row["detail"],
+            "date" => $row["date"],
+            "create_by" => $row["create_by"],
+            "status" => $st["status"],
+        );
+        array_push($data, $obj);
+    }
+    return $data;
+
 }

@@ -5,14 +5,14 @@ date_default_timezone_set("Asia/Bangkok");
 $Hostname = "localhost";
 
 // For Production
-// $Database = "sos";
-// $User = "sos";
-// $Password = "**123sos321**";
+$Database = "sos";
+$User = "sos";
+$Password = "**123sos321**";
 
 // For Dev
-$Database = "oar_service";
-$User = "root";
-$Password = "";
+// $Database = "oar_service";
+// $User = "root";
+// $Password = "";
 
 $connection = mysqli_connect($Hostname, $User, $Password, $Database);
 

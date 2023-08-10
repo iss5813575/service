@@ -77,8 +77,8 @@
 
     session_start();
     if (!isset($_SESSION['login'])) {
-      header('location: http://localhost/service/login/');
-      // header('location: https://sos.oas.psu.ac.th/login/');
+    //   header('location: http://localhost/service/login/');
+      header('location: https://sos.oas.psu.ac.th/login/');
     }
     ?>
 
@@ -135,6 +135,13 @@
             <div class="pagetitle">
                 <h1>เสนอเเนะ</h1>
             </div>
+            <div class="btn-group" role="group" aria-label="Basic outlined ">
+                <button type="button" class="btn btn-outline-primary btn-list-ap btn-active">รอดำเนินการ</button>
+                <button type="button" class="btn btn-outline-primary btn-list-ap">ดำเนินการเรียบร้อย</button>
+            </div>
+
+            <div class="list_data_ap_pending"></div>
+            <div class="list_data_ap_complete" hidden></div>
         </div>
 
 

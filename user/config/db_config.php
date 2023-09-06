@@ -47,35 +47,3 @@ function getData($table, $condition, $id)
     $result = mysqli_stmt_get_result($res);
     return $result;
 }
-
-function getId()
-{
-    global $connection;
-    $res = mysqli_query($connection, "SELECT user_id FROM user ORDER BY user_id DESC  LIMIT 1");
-    if (mysqli_num_rows($res) == 0) {
-        return 'USI' . date("Y") . '0001';
-    } else {
-        $rw = mysqli_fetch_array($res);
-        if (substr($rw['user_id'], 3, -4) == date("Y")) {
-            // echo substr($rw['job_info_id'],7) ."<br>";
-            $no = (substr($rw['user_id'], 7) * 1) + 1;
-            $num = str_pad($no, 4, "0", STR_PAD_LEFT);
-            return 'USI' . date("Y") . $num;
-        } else {
-            return 'USI' . date("Y") . '0001';
-        }
-    }
-}
-
-
-function update_sql($table, &$fields, $condition)
-{
-    global $connection;
-    $sql = "UPDATE $table SET ";
-    foreach ($fields as $key => $value) {
-        $fields[$key] = " `$key` = '" . $value . "' ";
-    }
-    $sql .= implode(" , ", array_values($fields)) . " WHERE " . $condition . ";";
-    $res = mysqli_query($connection, $sql);
-    return $res;
-}

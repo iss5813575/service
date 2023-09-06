@@ -447,7 +447,7 @@ h6 {
   list-style: none;
 }
 
-.header-nav>ul {
+.header-nav > ul {
   margin: 0;
   padding: 0;
 }
@@ -616,7 +616,6 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-
   #main,
   #footer {
     margin-left: 300px;
@@ -630,7 +629,6 @@ h6 {
 }
 
 @media (min-width: 1200px) {
-
   .toggle-sidebar #main,
   .toggle-sidebar #footer {
     margin-left: 0;
@@ -790,37 +788,37 @@ h6 {
   font-weight: bold;
 }
 
-.db_fast_repair {
+.db_list {
   background-color: #ffffff;
   padding: 10px;
+  display: flex;
 }
-
-.db_ap_repair {
-  background-color: #ffffff;
+.h_db {
+  background-color: #3d3f54;
+  color: #fff;
   padding: 10px;
 }
 
 .db_all {
-  background-color: #0d6efd;
+  background-color: #163e60;
   color: #fff;
   padding: 10px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
 .db_pending {
-  background-color: #dc3545;
+  background-color: #f15853;
   color: #fff;
   padding: 10px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
 
 .db_complete {
-  background-color: #198754;
+  background-color: #058588;
   color: #fff;
   padding: 10px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
 }
-
 
 /* END Dashboard */
 

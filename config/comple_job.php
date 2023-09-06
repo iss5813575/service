@@ -6,26 +6,38 @@ if (isset($_POST['complete_job_fast_repair'])) {
 
 
     $job_id = $_POST['complete_job_fast_repair'];
+    if (substr($job_id, 0, 3) == "REP") {
+        $table_update_status = "db_fast_status";
+        $table_update = "db_fast_repair";
+        $get_id_job = "id_repair";
+    } else if (substr($job_id, 0, 3) == "RPA") {
+        $table_update_status = "db_repair_status";
+        $table_update = "db_repair";
+        $get_id_job = "id_repair";
+    } else if (substr($job_id, 0, 3) == "FED") {
+        $table_update_status = "db_suggest_status";
+        $table_update = "db_suggest";
+        $get_id_job = "id_suggest";
+    }
 
     $status = array();
-    $status["id_repair"] = $job_id;
+    $status[$get_id_job] = $job_id;
     $status["status"] = "ดำเนินการเรียบร้อย";
     $status["date"] = date("Y-m-d H:i:s");
     $status["create_by"] = $_SESSION['user_id'];
     $status["worker"] = $_POST["txt_worker"];
     $status["detail_worker"] = $_POST["txt_detail"];
-    $res_status = insert_sql("db_fast_status", $status);
+    $res_status = insert_sql($table_update_status, $status);
 
-    $data = getData("db_fast_repair","id_repair", $job_id);
+    $data = getData($table_update, $get_id_job, $job_id);
     $data_create = mysqli_fetch_array($data, MYSQLI_ASSOC);
-    if($res_status){
+    if ($res_status) {
         send($data_create["create_by"], $job_id);
         echo json_encode(array("response" => "1"));
+    } else {
+        echo json_encode(array("response" => "0"));
     }
-    else{
-        echo json_encode(array("response" => "0"));   
-    }
-}else{
+} else {
     echo json_encode(array("response" => "0"));
 }
 
@@ -47,7 +59,7 @@ function send($id, $job_id)
     // if ($message == "สวัสดี") {
     $arrayPostData['to'] = $id;
     $arrayPostData['messages'][0]['type'] = "text";
-    $arrayPostData['messages'][0]['text'] = "การเเจ้งของท่านดำเนินการเรียบร้อยเเล้ว ขอบคุณครับ\nหมายเลขการเเจ้ง: " . $job_id . "";
+    $arrayPostData['messages'][0]['text'] = "คำร้องของท่านเจ้าหน้าที่ดำเนินการเรียบร้อยเเล้ว ขอบคุณครับ\n หมายเลขการคำร้อง: " . $job_id . "";
 
     pushMsg($arrayHeader, $arrayPostData);
     // }

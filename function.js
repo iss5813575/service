@@ -304,12 +304,9 @@ function getRepair()
               `
               $.each(data[i]["imgs"], function(index, value){
                 html_pending += `
-              
                 <a data-fancybox="gallery" href="./assets/img_repair/${value}">
                 <img class="rounded" width="200" height="150" src="./assets/img_repair/${value}" />
-              </a>
-            
-                `
+              </a>`
               });
             html_pending += `</div></div>`
             html_pending += `<button type="button" href="Javascript:;" class="btn btn-success btn-complete"  href-val=${data[i]["id_repair"]}>ดำเนินการ</button> `

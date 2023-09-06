@@ -32,7 +32,7 @@
     </script>
 
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <!-- <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"> -->
 
     <!-- fancyapps -->
 
@@ -42,6 +42,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 </head>
@@ -75,8 +76,8 @@
 
         session_start();
         if (!isset($_SESSION['login'])) {
-            header('location: http://localhost/service/login/');
-            //   header('location: https://sos.oas.psu.ac.th/login/');
+            // header('location: http://localhost/service/login/');
+            header('location: https://sos.oas.psu.ac.th/login/');
         }
         ?>
 

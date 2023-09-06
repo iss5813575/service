@@ -24,29 +24,29 @@ if (isset($_POST['txt_detail'])) {
 
 
         // ------LINE Notification-----
-        // ini_set('display_errors', 1);
-        // ini_set('display_startup_errors', 1);
-        // error_reporting(E_ALL);
-        // date_default_timezone_set("Asia/Bangkok");
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+        date_default_timezone_set("Asia/Bangkok");
+        $sToken = "Uxl4uySk9IbmneoNqN1txOjTfUL1Fae5Sc1Z1DQIPgc";
+        $sMessage = "\nหมายเลขงาน: " . $id_repair . "\nวันที่: " . date("d-m-Y") . " \nเวลา: " . date("H:i:s") . "\สถานที่: " . $_POST['txt_location'] . "\nรายละเอียด: " . $_POST['txt_detail'] . " \nหากดำเนินการเเล้วให้เข้าไปรายงานผลการดำเนินการที่ลิ้งค์ : " . "https://sos.oas.psu.ac.th/";
 
-        // $sToken = "BRgONy0QkCzTElrxo4FrsCeAbmMD6fIh6tnP014yUSb";
-        // $sMessage = "\nวันที่: " . date("d-m-Y") . " \nเวลา: " . date("H:i:s") . "\nหมายเลขงาน: " . $id_repair . "\nหมายเลขห้อง: " . $_POST['txt_room'] . "\nรายละเอียด: " . $_POST['txt_detail'] . " \nหากดำเนินการเเล้วให้รายเข้าไปรายงานผลการดำเนินการที่ลิ้งค์ : " . "https://sos.oas.psu.ac.th/";
 
-        // $chOne = curl_init();
-        // curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
-        // curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
-        // curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
-        // curl_setopt($chOne, CURLOPT_POST, 1);
-        // curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=" . $sMessage);
-        // $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer ' . $sToken . '',);
-        // curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-        // curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
-        // $result = curl_exec($chOne);
+        $chOne = curl_init();
+        curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($chOne, CURLOPT_POST, 1);
+        curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=" . $sMessage);
+        $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer ' . $sToken . '',);
+        curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($chOne);
 
-        // curl_close($chOne);
+        curl_close($chOne);
 
         // -------LINE PUSH--------
-        // send($_POST["txt_user_id"], $id_repair);
+        send($_POST["txt_user_id"], $id_repair);
     } else {
         echo json_encode(array("response" => "0"));
     }

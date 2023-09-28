@@ -68,16 +68,12 @@
     include_once('./side_bar/sidebar.php');
     ?>
 
-
-
     <main id="main" class="main">
-
         <?php
-
         session_start();
         if (!isset($_SESSION['login'])) {
-            // header('location: http://localhost/service/login/');
-            header('location: https://sos.oas.psu.ac.th/login/');
+            header('location: http://localhost/service/login/');
+            // header('location: https://sos.oas.psu.ac.th/login/');
         }
         ?>
 
@@ -150,13 +146,61 @@
             <div class="list_data_ap_complete" hidden></div>
         </div>
 
+        <div class="master_room table-responsive w-50" hidden>
+            <div class="pagetitle">
+                <h1>หมายเลขห้อง</h1>
+            </div>
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_room">
+                    Add
+                </button>
+            </div>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">หมายเลขห้อง</th>
+                        <th scope="col">วันที่</th>
+                    </tr>
+                </thead>
+                <tbody id="list_room">
+                </tbody>
+            </table>
+
+        </div>
+
 
 
 
     </main>
     <!-- End #main -->
 
+    <!-- Modal add room -->
+    <div class="modal fade" id="add_room" tabindex="-1" aria-labelledby="add_room_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="add_room_label">หมายเลขห้อง</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form_room">
+                    <div class="modal-body">
+                        <div class="content p-1">
+                            <label for="num_room" class="form-label">หมายเลขห้อง</label>
+                            <input type="text" class="form-control" name="num_room" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-primary">บันทึก</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <!-- room -->
+    <script src="./master_room/function.js"></script>
 
     <!-- PACE -->
     <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
@@ -165,6 +209,8 @@
     <script src="./function.js"></script>
 
     <script src="./assets/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

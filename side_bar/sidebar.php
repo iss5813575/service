@@ -12,6 +12,11 @@
     <div class="list_item ">
         <i class="bi bi-bookmark-check-fill"></i> <span style="margin-left: 8px;">เสนอเเนะ</span>
     </div>
+    <hr>
+    <div class="list_item ">
+        <i class="bi bi-hospital"></i> <span style="margin-left: 8px;">หมายเลขห้อง</span>
+    </div>
+    <hr>
     <div class="logout" id="logout">
         <i class="bi bi-box-arrow-in-right"></i>
         <span style="margin-left: 8px;">Login</span>

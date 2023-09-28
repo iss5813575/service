@@ -32,6 +32,7 @@ $(".list_item").on("click", function ()
       $(".fast_repair").attr("hidden", true);
       $(".repair").attr("hidden", true);
       $(".appeal").attr("hidden", true);
+      $(".master_room").attr("hidden", true);
       // $('body').toggleClass('toggle-sidebar')
       break;
     case 'แจ้งด่วน':
@@ -39,6 +40,7 @@ $(".list_item").on("click", function ()
       $(".dashboard").attr("hidden", true);
       $(".repair").attr("hidden", true);
       $(".appeal").attr("hidden", true);
+      $(".master_room").attr("hidden", true);
       // $('body').toggleClass('toggle-sidebar')
       break;
     case 'แจ้งซ่อม':
@@ -46,10 +48,21 @@ $(".list_item").on("click", function ()
       $(".dashboard").attr("hidden", true);
       $(".fast_repair").attr("hidden", true);
       $(".appeal").attr("hidden", true);
+      $(".master_room").attr("hidden", true);
       // $('body').toggleClass('toggle-sidebar')
       break;
     case 'เสนอเเนะ':
       $(".appeal").removeAttr("hidden");
+      $(".dashboard").attr("hidden", true);
+      $(".fast_repair").attr("hidden", true);
+      $(".repair").attr("hidden", true);
+      $(".master_room").attr("hidden", true);
+      // $('body').toggleClass('toggle-sidebar')
+      break;
+    case 'หมายเลขห้อง':
+      
+      $(".master_room").removeAttr("hidden");
+      $(".appeal").attr("hidden", true);
       $(".dashboard").attr("hidden", true);
       $(".fast_repair").attr("hidden", true);
       $(".repair").attr("hidden", true);
@@ -331,8 +344,7 @@ function getRepair()
               <div class="grid grid-cols-3 gap-4 max-w-xl mx-auto p-10">
               `
               $.each(data[i]["imgs"], function(index, value){
-                html_pending += `
-              
+                html_complete += `
                 <a data-fancybox="gallery" href="./assets/img_repair/${value}">
                 <img class="rounded" width="200" height="150" src="./assets/img_repair/${value}" />
               </a>
@@ -342,9 +354,12 @@ function getRepair()
             html_complete += `</div></div></div>`
           }
         }
-        $(".list_data_repair_pending").append(html_pending);
+        if(job_pending > 0){
+          $(".list_data_repair_pending").append(html_pending);
+        }
         $(".list_data_repair_complete").append(html_complete);
         $("#repair_all").text(job_all)
+        
         $("#repair_pending").text(job_pending)
         $("#repair_complete").text(job_complate)
 
